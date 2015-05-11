@@ -1,0 +1,68 @@
+package may1213s1;
+
+public class Lens {
+	public static Pair[] get(String[] source) {
+		Pair[] res = new Pair[source.length];
+		for (int i = 0; i < source.length; i++)
+			res[i] = new Pair(source[i].charAt(0), source[i].length());
+		return res;
+	}
+	
+	public static String exes (int n){
+		String s = new String();
+		s="";
+		for (int i=0;i<n;i++) 
+			s+="X";
+		return s;
+	}
+	
+	public static String[] create(Pair[] view) {
+		// ADD CODE HERE
+		String[] str = new String[view.length];
+		for(int i=0;i<view.length;i++)
+			str[i]=new String(view[i].getChar()+exes(view[i].getInt()-1));
+		return str;
+	}
+
+	public static String[] put(String[] oldSource, Pair[] newView) {
+		// Check that the old source and new view have same length.
+		// If they do not, report an error and stop the whole program.
+		if (!(oldSource.length == newView.length)) {
+			throw new RuntimeException("Length of view and source didn't match");
+		}
+		// if we get here at all, we know oldSource.length == newView.length
+		// ADD CODE HERE
+		//String[] r = new String[oldSource.length];
+		for (int i=0;i<oldSource.length;i++){
+			if (oldSource[i].length()>newView[i].getInt()) {
+				String[] old = new String [newView[i].getInt()]; 
+				for (int j =0;j<old.length;j++){
+					old[j] = oldSource[j];
+				}
+				oldSource[i]=old[i];
+			}
+			if (oldSource[i].length()<newView[i].getInt()) {
+				for (int j = oldSource[i].length(); j<newView[i].getInt(); j++)
+					oldSource[j]+="X";
+			}
+		}
+		return oldSource;
+		
+	}
+	
+
+	public static void main (String[] args){
+	/*	Pair [] r = get(new String[] {"foo", "bar", "froboz"});
+		for (int i = 0; i < r.length; i++){
+			System.out.println(r[i]);
+		}
+		String [] e =create (new Pair[] {new Pair('f',3), new Pair('b',3), new Pair('f',6)});
+		for (int i = 0; i < r.length; i++)
+			System.out.println(e[i]);
+		*/
+		String [] c = put (new String[] {"foo", "bar", "froboz"}, new Pair[] {new Pair('f',3), new Pair('b',3), new Pair('f',3)});
+		for (int i = 0; i < c.length; i++)
+			System.out.println(c[i]);
+	}
+}
+

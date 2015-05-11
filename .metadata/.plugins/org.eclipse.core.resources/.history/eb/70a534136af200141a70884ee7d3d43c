@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+
+public class SimplePlaylist extends Video {
+
+	public SimplePlaylist(String title, int length, int ageRating) {
+		
+		private ArrayList<Video> videos;
+		
+		super(title, length, ageRating);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+
+public class SimplePlaylist extends Video {
+	
+	private ArrayList<Video> videos = new ArrayList<Video>();
+
+	public SimplePlaylist(String title, int length, int ageRating) {		
+		super(title, length, ageRating);
+	}
+	
+	public ArrayList<Video> getVideos(){
+		return videos;
+	}
+	public void setVideos(ArrayList<Video> videos){
+		this.videos=videos;
+	}
+	
+	public String toString(){
+		String s=this.getTitle()+" ("+this.getLength()+" mins), R:"+this.getAgeRating()+"\nShowing:";
+		for (Video v:videos)
+			s+="\n"+v.toString();
+		return s;
+	}
+
+	public static void main(String[] args){
+		Video a = new Video("Titanic", 180, 12);
+		Video v = new Video("Dirty Dancing", 90, 15);
+		SimplePlaylist p = new SimplePlaylist("Lorena Cinema", 1000, 18);
+		ArrayList<Video> filme = new ArrayList<Video>();
+		filme.add(a);
+		filme.add(v);
+		p.setVideos(filme);
+		System.out.println(p);
+		
+	}
+
+}

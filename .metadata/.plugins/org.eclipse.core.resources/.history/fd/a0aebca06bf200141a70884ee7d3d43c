@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+
+public class BetterPlaylist extends Video {
+	
+	private ArrayList<Video> videos = new ArrayList<Video>();
+
+	public BetterPlaylist(String title) {
+		this.title=title;
+	}
+	
+	public ArrayList<Video> getVideos(){
+		return videos;
+	}
+	
+	public void setVideos(ArrayList<Video> videos){
+		this.videos=videos;
+	}
+	
+	public String toString(){
+		String s=this.getTitle()+" ("+this.getLength()+" mins), R:"+this.getAgeRating()+"\nShowing:";
+		for (Video v:videos)
+			s+="\n"+v.toString();
+		return s;
+	}
+	
+	
+	
+
+}

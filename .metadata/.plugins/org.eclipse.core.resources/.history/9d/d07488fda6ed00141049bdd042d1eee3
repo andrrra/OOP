@@ -1,0 +1,29 @@
+import java.util.Arrays;
+
+public class Rearrangement {
+	
+	public static int dotWith(int[] a, int[] b){
+		int k=0;
+		if (a.length==b.length){
+			for(int i=0;i<a.length;i++){
+				k+=a[i]*b[i];
+			}
+		}
+		return k;
+	}
+	
+	public static void rotate (int [] b){
+	//	b[0]=b[b.length-1];
+		for (int i =b.length-1;i>0;i--){
+			int aux = b[i];
+			b[i]=b[i-1];
+			b[i-1]=aux;
+		}
+	}
+	
+	public static void main (String[] args){
+		int[] b = new int[] {1, 2, 3};
+		rotate(b);
+	}
+
+}

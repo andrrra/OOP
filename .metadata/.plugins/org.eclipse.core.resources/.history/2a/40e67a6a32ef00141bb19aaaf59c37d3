@@ -1,0 +1,6 @@
+public class OneB {
+
+    public static double meanColSums(int[][] matrix) {
+        // ADD CODE HERE  
+    } 
+}

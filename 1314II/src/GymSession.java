@@ -1,0 +1,34 @@
+import java.util.HashMap;
+
+public class GymSession extends ExerciseSession {
+
+	private HashMap<String, Length> machines;
+
+	public GymSession(String type, String place) {
+		super(type, place);
+		machines = new HashMap<String, Length>(8);
+	}
+
+	public void addMachine(String name, Length length) {
+		machines.put(name, length);
+	}
+
+	public String toString() {
+		String s = super.toString() + "\nMachines:";
+		for (String m : machines.keySet()) {
+			s += "\n" + m + " " + machines.get(m);
+		}
+		return s;
+	}
+
+	public static void main(String[] args) {
+		GymSession a = new GymSession("Gym", "The Pleasance");
+		Length x = new Length();
+		x.setNumber(10);
+		x.setUnits("minutes");
+		a.addMachine("Treadmill", x);
+		a.addMachine("Cross-trainer", x);
+		System.out.println(a);
+	}
+
+}

@@ -1,0 +1,6 @@
+public class OneC {
+
+	public int [] remove( int [] a, int b ) {
+		// ADD CODE HERE	
+	}
+}

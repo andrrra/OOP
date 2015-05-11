@@ -1,0 +1,13 @@
+public class OneB {
+ 
+     public static double[] movingAvg(double[] data, int len) {
+        double[] r = new double[data.length-len+1];
+        for (int i = 0;i<r.length;i++){
+        	double s = 0;
+        	for (int j=i;j<i+len;j++)
+        		s+=data[j];
+        	r[i]=s*1.00/len;
+        }
+        return r;
+     }
+ }

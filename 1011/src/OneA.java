@@ -1,0 +1,11 @@
+public class OneA {
+ 
+     public static double harmonicMean(int[] nums) {
+    	 double s=0;
+    	int n = nums.length;
+         for (int i:nums){
+        	 s+=1.0/i;
+         }
+         return n/s;
+     }
+ }

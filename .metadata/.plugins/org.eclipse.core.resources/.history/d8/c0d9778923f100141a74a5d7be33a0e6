@@ -1,0 +1,6 @@
+public class OneB {
+ 
+     public static double[] movingAvg(double[] data, int len) {
+         // ADD CODE HERE
+     }
+ }

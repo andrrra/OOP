@@ -1,0 +1,6 @@
+public class OneB {
+
+	public int [] copyRange( int [] a, int i, int j ) {
+		// ADD CODE HERE	
+	}
+}

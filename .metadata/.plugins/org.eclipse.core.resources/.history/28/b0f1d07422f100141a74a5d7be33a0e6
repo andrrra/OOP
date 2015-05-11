@@ -1,0 +1,9 @@
+
+public class QuestionOneTester {
+	
+	public static void main (){
+		int[] a = {1,2,3};
+		System.out.println(OneA.harmonicMean(a));
+	}
+
+}

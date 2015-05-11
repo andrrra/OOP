@@ -1,0 +1,80 @@
+public class Lens {
+	public static Pair[] get(String[] source) {
+		char c; int n; int i=0;
+		Pair [] r = new Pair[source.length];
+		for(String s:source){
+			c=s.charAt(0);
+			n=s.length();
+			Pair p = new Pair(c,n);
+			r[i]=p;
+			i++;
+		}
+		return r;
+	}
+	
+	
+	
+	public static String[] create(Pair[] view) {
+		String[] s = new String[view.length];
+		int i=0;
+		for (Pair p:view){
+			String x="";
+			for (int a=0;a<p.getInt()-1;a++)
+				x+="X";
+			s[i]=p.getChar()+x;
+			i++;
+		}
+		return s;
+	}
+	
+	public static String[] put(String[] oldSource, Pair[] newView) {
+		// Check that the old source and new view have same length.
+		// If they do not, report an error and stop the whole program.
+		if (!(oldSource.length == newView.length)) {
+			throw new RuntimeException("Length of view and source didn't match");
+		}
+		// if we get here at all, we know oldSource.length == newView.length
+		// ADD CODE HERE
+		String[] s = new String[oldSource.length];
+		for (int i=0;i<oldSource.length;i++){
+			if (oldSource[i].charAt(0)!=newView[i].getChar())
+				throw new RuntimeException("First characters don't match");
+			else {
+				if (oldSource[i].length()==newView[i].getInt())
+					s[i]=oldSource[i];
+				else if (oldSource[i].length()>newView[i].getInt()){
+					s[i]="";
+					for(int j=0;j<newView[i].getInt();j++){
+						s[i]+=oldSource[i].charAt(j);
+						}
+					}
+				else {
+					s[i]=oldSource[i];
+					for (int j=0;j<newView[i].getInt()-oldSource[i].length();j++)
+						s[i]+="X";
+					}
+				}
+			}
+		return s;
+		}
+	
+	public static void main(String[] args){
+		Pair [] r = get(new String[] {"foo", "bar", "froboz"});
+		for (int i = 0; i < r.length; i++){
+			System.out.println(r[i]);
+		}
+		String [] e =create (new Pair[] {new Pair('f',3), new Pair('b',3), new Pair('f',6)});
+		for (int i = 0; i < r.length; i++)
+			System.out.println(e[i]);
+		
+		String [] c = put (new String[] {"foo", "bar", "froboz"}, new Pair[] {new Pair('f',3), new Pair('b',3), new Pair('f',3)});
+		for (int i = 0; i < c.length; i++)
+			System.out.println(c[i]);
+		System.out.println();
+		String [] c2 = put (new String[] {"foo", "bar", "froboz"}, new Pair[] {new Pair('f',3), new Pair('b',6), new Pair('f',3)});
+		for (int i = 0; i < c2.length; i++)
+			System.out.println(c2[i]);
+	}
+	
+}
+

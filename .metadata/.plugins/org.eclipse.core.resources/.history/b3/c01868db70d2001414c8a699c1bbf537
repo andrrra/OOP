@@ -1,0 +1,15 @@
+package may1213s1;
+
+public class InvestigateLens {
+	
+	public static boolean checkGetPut(String[] s,  Pair[] v){
+	 return (v.equals(Lens.get(Lens.put(s,v))));
+	}
+	
+	public static void main (String[] args){
+		String[][] s = { { "FOO" }, { "foo", "BAR", "frObOz" },{ "foo", "bar", "FROBOZ" } };
+		Pair[][] p = {{['f',7]}, {['f',7], ['b',3], ['f',6]}, {['f',2], ['b',5], ['f',3];
+
+	}
+
+}

@@ -1,0 +1,50 @@
+import java.awt.geom.Line2D;
+import java.text.DecimalFormat;
+
+public class IntersectionCheck {
+	
+	public static boolean linesIntersect(Line line1, Line line2){
+		Line2D.Double a = new Line2D.Double(line1.getX1(), line1.getY1(), line1.getX2(), line1.getY2());
+		Line2D.Double b = new Line2D.Double(line2.getX1(), line2.getY1(), line2.getX2(), line2.getY2());
+		if (a.equals(b)) return false;
+		else return (a.intersectsLine(b));
+	}
+	
+	public static Line[] getIntersections(Line currentLine, Line[] allLines){
+		int nr=0;
+		for(Line l:allLines)
+			if (linesIntersect (currentLine,l))
+				nr++;
+		Line[] r = new Line[nr];	
+		 int j=0;
+		for(Line l:allLines)
+				if (linesIntersect (currentLine,l))
+					r[j++]=l;
+		return r;
+	}
+	
+	public static String printLine(Line segment){
+		DecimalFormat f = new DecimalFormat("0,0");
+		return "("+f.format(segment.getX1()*10)+","+f.format(segment.getY1()*10)+") to ("+f.format(segment.getX2()*10)+","+f.format(segment.getY2()*10)+")";
+	}
+	
+	public static String printIntersections(Line[] allLines){
+		String r = "";
+		for(Line l:allLines){
+			Line[] i = getIntersections(l, allLines);
+			if (i.length>0){
+				r+="Line"+printLine(l)+" intersects with:\n";
+				for(Line b:i)
+					r+=printLine(b)+"\n";
+			}
+		}
+		return r;
+	}
+	
+	public static void main(String[] args){
+		Line a = new Line(1.2,1.4,2.3,3.00);
+		System.out.println(printLine (a));
+	}
+	
+
+}

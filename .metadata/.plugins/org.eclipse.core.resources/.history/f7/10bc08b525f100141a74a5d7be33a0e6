@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+ 
+ public class OneC {
+ 
+     public static String[] getDomainLabels(String url) {
+         // ADD CODE HERE
+     }
+ 
+     public static void reverseArray(String[] labels) {
+         // ADD CODE HERE
+     }
+ 
+     public static String arrayToString(String[] labels) {
+         // ADD CODE HERE
+     }
+ 
+     public static ArrayList<String> textToReversedDomains(String filename) {
+         // ADD CODE HERE
+     }
+ 
+ }

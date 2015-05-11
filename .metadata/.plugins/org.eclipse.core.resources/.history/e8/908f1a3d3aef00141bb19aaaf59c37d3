@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class OneC {
+
+    public static int hammingDist(String left, String right) {
+        // ADD CODE HERE
+    }
+
+    public static String findFarthest(String s, String[] targets) {
+        // ADD CODE HERE
+    }
+
+    public static ArrayList<String> findNearestK(String s, String[] targets,
+            int k) {
+        // ADD CODE HERE
+    }
+
+    public static int stringDist(String left, String right) {
+        // ADD CODE HERE
+    }
+
+}

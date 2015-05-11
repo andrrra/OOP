@@ -1,0 +1,10 @@
+public class OneB {
+
+	public static int [] copyRange( int [] a, int i, int j ) {
+		int[] r = new int[j-i+1];
+		for(int x = i; x<=j; x++){
+			r[x-i]=a[x];
+		}
+		return r;
+	}
+}

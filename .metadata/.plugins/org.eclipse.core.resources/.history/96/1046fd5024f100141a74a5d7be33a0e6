@@ -1,0 +1,11 @@
+
+public class QuestionOneTester {
+	
+	public static void main (String[] args){
+		int[] a = {1,2,3};
+		System.out.println(OneA.harmonicMean(a));
+		double[] b = {3,3,6,2,8,9};
+		System.out.println(OneB.movingAvg(b, 3));
+	}
+
+}

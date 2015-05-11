@@ -1,0 +1,9 @@
+package may1213s1;
+
+public class InvestigateLens {
+	
+	public static boolean checkGetPut(String[] s,  Pair[] v){
+	 return (v.equals(Lens.get(Lens.put(s,v))));
+	}
+
+}

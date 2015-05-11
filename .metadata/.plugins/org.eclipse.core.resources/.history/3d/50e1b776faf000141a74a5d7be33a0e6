@@ -1,0 +1,15 @@
+
+public class InvestigateLens {
+	
+	public static boolean checkGetPut(String[] s, Pair[] v){
+		return (Lens.get(Lens.put(s, v))==v);
+	}
+	
+	public static void main(String[] args){
+		String[] s1 = {"foo"};
+		String[] s2 = {"foo", "bar", "froboz"};
+		Pair[] p1= {[`f`, 7]};
+		
+	}
+
+}

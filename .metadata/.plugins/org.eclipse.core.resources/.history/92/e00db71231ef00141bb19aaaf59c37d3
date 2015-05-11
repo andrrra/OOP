@@ -1,0 +1,9 @@
+public class OneA {
+
+    public static int prodOfPairs(int[] nums) {
+        // ADD CODE HERE  
+    }
+
+ 
+
+}

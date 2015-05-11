@@ -1,0 +1,10 @@
+
+public class BetterPlaylist extends Video {
+
+	public BetterPlaylist(String title, int length, int ageRating) {
+		super(title, length, ageRating);
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

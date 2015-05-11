@@ -1,0 +1,56 @@
+import java.util.Arrays;
+
+
+public class Inequalitites {
+	
+	public static int dotProduct(int[]a, int[]b){
+		if (a.length!=b.length) return 0;
+		else {
+			int s=0;
+			for(int i=0;i<a.length;i++){
+				s+=a[i]*b[i];
+			}
+			return s/a.length;
+		}
+	}
+	
+	public static int[] concatenate (int[] a, int[] b){
+		Arrays.sort(a);
+		Arrays.sort(b);
+		int[] r = new int[a.length+b.length];
+		for (int i=0;i<a.length;i++)
+			r[i]=a[i];
+		for(int i=0;i<b.length;i++)
+			r[i+a.length]=b[i];
+		return r;
+	}
+	
+	public static boolean cs(int[] a, int[] b){
+		return (a.length==b.length) && (Math.pow(dotProduct(a,b), 2)<=(dotProduct(a,a)*dotProduct(b,b)));
+	}
+	
+	public static boolean amgm(int[] a){
+		int am = 0, gm=1;
+		for (int i=0;i<a.length;i++){
+			am+=a[i];
+			gm*=a[i];
+		}
+		return (am/a.length>Math.pow(gm, 1/a.length));
+	}
+	
+	public static void main(String[] args) {
+		int n = Integer.parseInt(args[0]);
+		int[] a = new int[n];
+		int[] b = new int[n];
+		for (int i=1;i<=n;i++)
+			a[i]=Integer.parseInt(args[i]);
+		for(int i=n+1;i<=2*n;i++)
+			b[i-n-1]=Integer.parseInt(args[i]);
+		System.out.println(cs(a,b));
+		System.out.println(amgm(concatenate(a,b)));
+		
+	}
+			
+}
+
+

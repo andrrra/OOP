@@ -1,0 +1,10 @@
+class QuestionOneLauncher {
+
+	public static void main(String [] args) {
+		int[] a = {1,2,3,4,5};
+		int[] a2 = {3,6,9};
+		int[] a3 = {3,5,4,3};
+		boolean one = OneA.inRange (a,1,5);
+	}
+
+}

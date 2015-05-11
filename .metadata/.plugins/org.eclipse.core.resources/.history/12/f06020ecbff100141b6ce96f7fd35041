@@ -1,0 +1,6 @@
+public class OneA {
+
+	public boolean inRange( int [] a, int b, int c ) {
+		// ADD CODE HERE	
+	}
+}

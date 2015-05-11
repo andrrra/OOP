@@ -1,0 +1,31 @@
+
+public class Polygon {
+	
+	private Vector[] vectors={};
+	
+	public Polygon(Vector[] vectors){
+		this.vectors=vectors;
+	}
+	
+	public Vector[] getVectors(){
+		return vectors; 
+		}
+	
+	public double perimeter(){
+		double s=0;
+		for(Vector v:vectors)
+			s+=v.magnitude();
+		return s;
+	}
+	
+	boolean isClosed(){
+		Point p=new Point(0,0);
+		Vector v=vectors[vectors.length-1];
+		p=v.translate(p);
+		if(p.getX()==0&&p.getY()==0) return true;
+		return false;
+	}
+	
+	
+
+}

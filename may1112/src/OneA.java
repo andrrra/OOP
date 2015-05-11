@@ -1,0 +1,23 @@
+public class OneA {
+
+    public static int prodOfPairs(int[] nums) {
+      if (nums.length==0) return 0;
+      else if (nums.length%2==1) return -1;
+      else {
+    	  int s=0;
+    	  for(int i=0;i<nums.length;i+=2){
+    		  s+=nums[i]*nums[i+1];
+    	  }
+    	  return s;
+      }
+    }
+    
+    public static void main(String[] args){
+    	System.out.println(prodOfPairs(new int[] {1,2,3,4}));
+    	System.out.println(prodOfPairs(new int[] {3,5,7,5,-2,4}));
+    	System.out.println(prodOfPairs(new int[] {}));
+    	System.out.println(prodOfPairs(new int[] {1,2,3}));
+    	}
+
+}
+

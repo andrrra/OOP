@@ -1,0 +1,64 @@
+
+public class BinaryExpr extends Expr{
+	
+	private Expr l, r;
+	private Op op;
+	
+	public BinaryExpr(Expr l, Op op, Expr r) {
+		this.l = l;
+		this.r = r;
+		this.op = op;
+	}
+	
+	public Expr getLeft() {
+		return l;
+	}
+
+	public Expr getRight() {
+		return r;
+	}
+
+	public Op getOP() {
+		return op;
+	}
+
+	public boolean isTerm() {
+		return l.isTerm() && r.isTerm() && op == Op.PRODUCT;
+	}
+
+	public boolean isNorm() {
+		return ((this.isTerm())||(l.isNorm() && r.isNorm() && op == Op.SUM));
+	}
+	
+	public String toString() {
+		return "(" + l.toString() + op + r.toString() + ")";
+	}
+	
+	public BinaryExpr normalize() {
+		if (this.isNorm())
+			return this;
+		else if (getLeft().getLeft() != null)
+			return (new BinaryExpr((new BinaryExpr(l.getLeft(), Op.PRODUCT, r).normalize()), Op.SUM, new BinaryExpr(l.getRight(), Op.PRODUCT, r).normalize()));
+		else
+			return (new BinaryExpr(new BinaryExpr(l, Op.PRODUCT, r.getLeft()), Op.SUM, new BinaryExpr(l, Op.PRODUCT, r.getRight()))).normalize();
+		}
+	
+	public static void main(String[] args){
+		BinaryExpr e0=new BinaryExpr(new Var("x"), Op.PRODUCT, new Var ("y"));
+		BinaryExpr e1=new BinaryExpr(new Var("x"), Op.SUM, new Var("y"));
+		BinaryExpr e2=new BinaryExpr(e0, Op.SUM, new Var("z"));
+		BinaryExpr e3=new BinaryExpr(e1,Op.PRODUCT, new Var("z"));
+		BinaryExpr e4=new BinaryExpr(e0, Op.PRODUCT, new Var("z"));
+		BinaryExpr e5=new BinaryExpr(e1,Op.PRODUCT, e1);
+		
+		System.out.println(new Var("x").normalize());
+		System.out.println(e0.normalize());
+		System.out.println(e1.normalize());
+		System.out.println(e2.normalize());
+		System.out.println(e3.normalize());		
+		System.out.println(e4.normalize());
+		System.out.println(e5.normalize());
+
+	}
+
+}
